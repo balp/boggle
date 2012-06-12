@@ -1,5 +1,6 @@
 import argparse
 import sys
+import random
 
 parser = argparse.ArgumentParser(
     description = "Boggle solver")
@@ -18,7 +19,14 @@ class Solution(object):
         self.positions = positions
 
 def random_board():
-    return "pythabcoqwenzxcv"
+    cubesfile = open("cubes.txt", "r")
+    res = ""
+    cubes = cubesfile.readlines()
+    random.shuffle(cubes)
+    for cube in cubes[0:16]:
+        res = res + random.choice(cube.strip())
+    cubesfile.close()
+    return res
 
 def load_wordlist(dictfile):
     return ["python"]

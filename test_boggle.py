@@ -39,5 +39,9 @@ class TestCommandLine(unittest.TestCase):
         outmsg, errmsg = run("pyth asdo wern nmkl")
         assert "python" in outmsg
 
+class TestBoardLoading(unittest.TestCase):
+    def test_loadBoard(self):
+        self.assertEquals( len(boggle.random_board()), 16)
+
 if __name__ == "__main__":
     unittest.main()
